@@ -34,7 +34,7 @@ public class Main {
         System.out.println("\n\n");
         
         GeoPuntoAlt nu = new GeoPuntoAlt(4.166093, 38.995656, 4.568);
-        GeoPuntoAlt nue = new GeoPuntoAlt(-0.166093, 38.995656, 2.568);
+        GeoPuntoAlt nue = new GeoPuntoAlt(4.343, 98.995656, 90.568);
         
         System.out.println(nue.distancia(nu)); 
     }
