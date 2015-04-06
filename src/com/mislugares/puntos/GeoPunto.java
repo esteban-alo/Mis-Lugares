@@ -49,24 +49,38 @@ public class GeoPunto {
      * @param punto
      * @return
      */
-    public double distancia(GeoPunto punto) {
-        final double RADIO_TIERRA = 6371000; // en metros
-
-        double dLat = Math.toRadians(latitud - punto.latitud);
-
-        double dLon = Math.toRadians(longitud - punto.longitud);
-
-        double lat1 = Math.toRadians(punto.latitud);
-
-        double lat2 = Math.toRadians(latitud);
-
-        double a = Math.sin(dLat / 2) * Math.sin(dLat / 2)
-                + Math.sin(dLon / 2) * Math.sin(dLon / 2)
-                * Math.cos(lat1) * Math.cos(lat2);
-
-        double c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
-
-        return c * RADIO_TIERRA;
+//    public double distancia(GeoPunto punto) {
+//        final double RADIO_TIERRA = 6371000; // en metros
+//
+//        double dLat = Math.toRadians(latitud - punto.latitud);
+//
+//        double dLon = Math.toRadians(longitud - punto.longitud);
+//
+//        double lat1 = Math.toRadians(punto.latitud);
+//
+//        double lat2 = Math.toRadians(latitud);
+//
+//        double a = Math.sin(dLat / 2) * Math.sin(dLat / 2)
+//                + Math.sin(dLon / 2) * Math.sin(dLon / 2)
+//                * Math.cos(lat1) * Math.cos(lat2);
+//
+//        double c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+//
+//        return c * RADIO_TIERRA;
+//    }
+    
+    public double distancia (GeoPunto punto){ 
+        final double RADIO_TIERRA = 6371000;
+        // en metros double 
+        double dLat = Math.toRadians(latitud/1E6 - punto.latitud/1E6); 
+        double dLon = Math.toRadians(longitud/1E6 - punto.longitud/1E6); 
+        double lat1 = Math.toRadians(punto.latitud/1E6); 
+        double lat2 = Math.toRadians(latitud/1E6); 
+        double a = Math.sin(dLat/2) * Math.sin(dLat/2) +
+                Math.sin(dLon/2) * Math.sin(dLon/2) *
+                Math.cos(lat1) * Math.cos(lat2); 
+        double c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a)); 
+        return c * RADIO_TIERRA; 
     }
 
     //Getters
